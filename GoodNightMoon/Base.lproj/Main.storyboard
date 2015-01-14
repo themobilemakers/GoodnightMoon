@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,121 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IFJ-AM-Ig5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5jI-01-9Tj">
+                                    <size key="itemSize" width="180" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XnN-Zh-Aft" customClass="ImageCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon_1" translatesAutoresizingMaskIntoConstraints="NO" id="0JB-Ir-CjU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                    </variation>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="0JB-Ir-CjU"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="0JB-Ir-CjU"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="imageView" destination="0JB-Ir-CjU" id="oAq-aD-SMg"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="fF8-jJ-94l"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="0NO-tP-dKC"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPW-fZ-3lj" userLabel="shadeView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.73741319444444442" green="0.29619359415577839" blue="0.37789174691148031" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="pX5-zS-4tR" appends="YES" id="DF2-7F-jAZ"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IFJ-AM-Ig5" secondAttribute="trailing" constant="-16" id="3TO-3L-r1d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MPW-fZ-3lj" secondAttribute="trailing" constant="-16" id="Q3h-I6-zrr"/>
+                            <constraint firstItem="MPW-fZ-3lj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="-546" id="URS-km-lkf"/>
+                            <constraint firstItem="MPW-fZ-3lj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Xlp-z5-jI3"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MPW-fZ-3lj" secondAttribute="bottom" constant="546" id="YDL-ar-PLF"/>
+                            <constraint firstItem="IFJ-AM-Ig5" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="aA6-MJ-Bud"/>
+                            <constraint firstItem="IFJ-AM-Ig5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="m84-rt-V1C"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="IFJ-AM-Ig5" secondAttribute="bottom" id="nGx-dG-VUD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="IFJ-AM-Ig5"/>
+                                <exclude reference="MPW-fZ-3lj"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3TO-3L-r1d"/>
+                                <exclude reference="aA6-MJ-Bud"/>
+                                <exclude reference="m84-rt-V1C"/>
+                                <exclude reference="Q3h-I6-zrr"/>
+                                <exclude reference="URS-km-lkf"/>
+                                <exclude reference="Xlp-z5-jI3"/>
+                                <exclude reference="YDL-ar-PLF"/>
+                                <exclude reference="nGx-dG-VUD"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="IFJ-AM-Ig5"/>
+                                <include reference="MPW-fZ-3lj"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="3TO-3L-r1d"/>
+                                <include reference="aA6-MJ-Bud"/>
+                                <include reference="m84-rt-V1C"/>
+                                <include reference="Q3h-I6-zrr"/>
+                                <include reference="URS-km-lkf"/>
+                                <include reference="Xlp-z5-jI3"/>
+                                <include reference="YDL-ar-PLF"/>
+                                <include reference="nGx-dG-VUD"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="IFJ-AM-Ig5" id="pCN-sv-28c"/>
+                        <outlet property="shadeView" destination="MPW-fZ-3lj" id="DHx-Ml-hQO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="pX5-zS-4tR">
+                    <connections>
+                        <action selector="handlePan:" destination="vXZ-lx-hvc" id="aqY-FA-kEc"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="375" y="337"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="moon_1" width="690" height="388"/>
+    </resources>
 </document>
